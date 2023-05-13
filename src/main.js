@@ -18,7 +18,8 @@
  * I think the amount of effort that I put into designing this project goes without saying. I designed every single tilesprite
  * and background myself. All used sprites and animations were also created by me. I created a color palette so that every aspect of
  * my game would be cohesive with my theme. Every color used falls exactly within my chosen color palette except for the player sprite
- * which is a constrasting color so that it sticks out more and is easier to see.
+ * which is a constrasting color so that it sticks out more and is easier to see. I also added a quick two sentence story to my game
+ * to give it a little bit of life and lore.
  ********************************************************************************************************************************************/
 
 // global game options
