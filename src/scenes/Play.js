@@ -13,20 +13,12 @@ class Play extends Phaser.Scene {
     create() {
         // Make background
         this.skytile = this.add.tileSprite(0, 0, 640, 480, 'skytile').setOrigin(0, 0);
-        this.platform = this.physics.add.sprite(game.config.width / 4, game.config.height - borderUISize - borderPadding - 50, 'platform').setOrigin(0.5, 0);
+        this.platform = this.physics.add.sprite(game.config.width / 6, game.config.height - borderUISize - borderPadding - 50, 'platform').setOrigin(0.5, 0);
         this.platform.setImmovable(true);
         this.platform.displayWidth = 100;
 
-        // light blue UI background
-        this.add.rectangle(0, borderUISize + borderPadding - 45, game.config.width, borderUISize * 2, 0xADD8E6).setOrigin(0, 0);
-        // light yellow borders
-        //this.add.rectangle(0, 0, game.config.width, borderUISize, 0xffffe0).setOrigin(0, 0);
-        //this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xffffe0).setOrigin(0, 0);
-        //this.add.rectangle(0, 0, borderUISize, game.config.height, 0xffffe0).setOrigin(0, 0);
-        //this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xffffe0).setOrigin(0, 0);
-
         // add angel (p1)
-        this.p1Angel = this.physics.add.sprite(game.config.width / 4, game.config.height - borderUISize - borderPadding - 120, 'angel');
+        this.p1Angel = this.physics.add.sprite(game.config.width / 6, game.config.height - borderUISize - borderPadding - 120, 'angel');
         this.p1Angel.setGravityY(gameOptions.playerGravity);
 
         this.randX0 = Phaser.Math.Between(620, game.config.width);
@@ -135,43 +127,43 @@ class Play extends Phaser.Scene {
         }
 
         if (this.p1Angel.y > 480) {
-            this.scene.start("gameOverScene");
+            this.scene.start("overScene");
         }
 
         if (this.checkCollision(this.p1Angel, this.platform0)) {
-            this.scene.start("gameOverScene");
+            this.scene.start("overScene");
         }
 
         if (this.checkCollision(this.p1Angel, this.platform1)) {
-            this.scene.start("gameOverScene");
+            this.scene.start("overScene");
         }
 
         if (this.checkCollision(this.p1Angel, this.platform2)) {
-            this.scene.start("gameOverScene");
+            this.scene.start("overScene");
         }
 
         if (this.checkCollision(this.p1Angel, this.platform3)) {
-            this.scene.start("gameOverScene");
+            this.scene.start("overScene");
         }
 
         if (this.checkCollision(this.p1Angel, this.platform4)) {
-            this.scene.start("gameOverScene");
+            this.scene.start("overScene");
         }
 
         if (this.checkCollision(this.p1Angel, this.platform5)) {
-            this.scene.start("gameOverScene");
+            this.scene.start("overScene");
         }
 
         if (this.checkCollision(this.p1Angel, this.platform6)) {
-            this.scene.start("gameOverScene");
+            this.scene.start("overScene");
         }
 
         if (this.checkCollision(this.p1Angel, this.platform7)) {
-            this.scene.start("gameOverScene");
+            this.scene.start("overScene");
         }
 
         if (this.checkCollision(this.p1Angel, this.platform8)) {
-            this.scene.start("gameOverScene");
+            this.scene.start("overScene");
         }
         
 
