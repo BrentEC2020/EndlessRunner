@@ -23,6 +23,13 @@ class Play extends Phaser.Scene {
         this.p1Angel = this.physics.add.sprite(game.config.width / 6, game.config.height - borderUISize - borderPadding - 120, 'angel', 0).setOrigin(0, 0);
         this.p1Angel.setGravityY(gameOptions.playerGravity);
 
+        // add sounds
+        this.song = this.sound.add('song');
+        this.death = this.sound.add('death');
+        this.p1Jump = this.sound.add('jump');
+
+        this.song.play();
+
         this.randX0 = Phaser.Math.Between(620, game.config.width);
         this.randX1 = Phaser.Math.Between(420, game.config.width);
         this.randX2 = Phaser.Math.Between(390, game.config.width);
@@ -55,7 +62,6 @@ class Play extends Phaser.Scene {
 
         // define keys
         keyJUMP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-        keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
@@ -101,16 +107,17 @@ class Play extends Phaser.Scene {
         this.skytile.tilePositionX -= 4;
         this.moveSpeed = 3;
 
-        this.platform1.x -= 1;
+        this.platform1.x -= 1.85;
         this.platform2.x -= 2;
-        this.platform3.x -= 0.85;
+        this.platform3.x -= 1.35;
         this.platform4.x -= 1.5;
-        this.platform5.x -= 1.35;
-        this.platform6.x -= 0.75;
-        this.platform7.x -= 1.25;
-        this.platform8.x -= 0.25;
+        this.platform5.x -= 0.5;
+        this.platform6.x -= 2.3;
+        this.platform7.x -= 2.5;
+        this.platform8.x -= 0.85;
 
         if (keyJUMP.isDown && this.p1Angel.y > 55) {
+            this.p1Jump.play();
             this.p1Angel.setVelocityY(-300);
             this.points++;
             this.score += this.points;
@@ -130,43 +137,63 @@ class Play extends Phaser.Scene {
         }
 
         if (this.p1Angel.y > 480) {
-            this.scene.start("overScene");
+            this.death.play();
+            this.song.stop();
+            this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform0)) {
-            this.scene.start("overScene");
+            this.death.play();
+            this.song.stop();
+            this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform1)) {
-            this.scene.start("overScene");
+            this.death.play();
+            this.song.stop();
+            this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform2)) {
-            this.scene.start("overScene");
+            this.death.play();
+            this.song.stop();
+            this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform3)) {
-            this.scene.start("overScene");
+            this.death.play();
+            this.song.stop();
+            this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform4)) {
-            this.scene.start("overScene");
+            this.death.play();
+            this.song.stop();
+            this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform5)) {
-            this.scene.start("overScene");
+            this.death.play();
+            this.song.stop();
+            this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform6)) {
-            this.scene.start("overScene");
+            this.death.play();
+            this.song.stop();
+            this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform7)) {
-            this.scene.start("overScene");
+            this.death.play();
+            this.song.stop();
+            this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform8)) {
-            this.scene.start("overScene");
+            this.death.play();
+            this.song.stop();
+            this.scene.start('overScene');
         }
         
 

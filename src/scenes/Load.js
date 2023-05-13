@@ -25,10 +25,16 @@ class Load extends Phaser.Scene {
         this.load.image('skytile', 'skytile.png');
         this.load.image('loadDrop', 'load.png');
         this.load.image('menuDrop', 'menu.png');
+        this.load.image('overDrop', 'gameover.png');
 
         // enemy
         this.load.image('platform', 'platform.png')
 
+        // Sounds and Music
+        this.load.audio('click', ['button-click.wav']);
+        this.load.audio('death', ['death.mp3']);
+        this.load.audio('jump', ['jump.mp3']);
+        this.load.audio('song', ['angelmusic.mp3']);
 
     }
 
