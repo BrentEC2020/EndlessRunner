@@ -22,7 +22,7 @@ class Credits extends Phaser.Scene{
     update() {
         if(keyJUMP.isDown) {
             this.click.play();
-            this.scene.start('playScene');
+            this.scene.start('rulesScene');
         }
     }
 }

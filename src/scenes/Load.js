@@ -24,6 +24,7 @@ class Load extends Phaser.Scene {
         // backdrops
         this.load.image('skytile', 'skytile.png');
         this.load.image('loadDrop', 'load.png');
+        this.load.image('rules', 'rules.png');
         this.load.image('menuDrop', 'menu.png');
         this.load.image('overDrop', 'gameover.png');
 

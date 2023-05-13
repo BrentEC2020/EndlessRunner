@@ -12,7 +12,7 @@ let config = {
     type: Phaser.CANVAS,
     width: 640,
     height: 480,
-    scene: [ Load, Menu, Credits, Play, GameOver ],
+    scene: [ Load, Menu, Credits, Rules, Play, GameOver ],
     physics: {
         default: "arcade",
         arcade: {
@@ -34,3 +34,7 @@ let borderPadding = borderUISize / 3;
 
 // reserve keyboard vars
 let keyJUMP, keySPACE, keyLEFT, keyRIGHT, keyC, keyM;
+
+// keep scores
+let score;
+let highScore = 0;

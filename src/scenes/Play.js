@@ -28,6 +28,7 @@ class Play extends Phaser.Scene {
         this.death = this.sound.add('death');
         this.p1Jump = this.sound.add('jump');
 
+        this.song.loop = true;
         this.song.play();
 
         this.randX0 = Phaser.Math.Between(620, game.config.width);
@@ -76,7 +77,7 @@ class Play extends Phaser.Scene {
         this.physics.add.collider(this.p1Angel, this.platform7);
         this.physics.add.collider(this.p1Angel, this.platform8);
 
-        this.score = 0;
+        score = 0;
 
         this.clock = this.time.delayedCall(1000, () => {
             this.platform.destroy();
@@ -87,7 +88,7 @@ class Play extends Phaser.Scene {
             fontSize: '28px',
             backgroundColor: '#F3B141',
             color: "#843605",
-            algin: 'left',
+            align: 'left',
             padding: {
                 top: 5,
                 bottom: 5,
@@ -95,7 +96,7 @@ class Play extends Phaser.Scene {
             fixedWidth: 100
         }
 
-        this.scoreText = this.add.text(game.config.width / 2 - 300, game.config.height - 465, this.score, scoreConfig).setScrollFactor(0);
+        this.scoreText = this.add.text(game.config.width / 2 - 300, game.config.height - 465, score, scoreConfig).setScrollFactor(0);
 
     }
 
@@ -116,12 +117,48 @@ class Play extends Phaser.Scene {
         this.platform7.x -= 2.5;
         this.platform8.x -= 0.85;
 
+        // increase platform speed at 30 seconds
+        this.speedClock = this.time.delayedCall(35000, () => {
+            this.platform1.x -= 2.15;
+            this.platform2.x -= 2.3;
+            this.platform3.x -= 1.65;
+            this.platform4.x -= 1.8;
+            this.platform5.x -= 0.8;
+            this.platform6.x -= 2.6;
+            this.platform7.x -= 2.8;
+            this.platform8.x -= 1.15;
+        })
+
+        // increase platform speed at 70 seconds
+        this.speedClock = this.time.delayedCall(70000, () => {
+            this.platform1.x -= 2.45;
+            this.platform2.x -= 2.6;
+            this.platform3.x -= 1.95;
+            this.platform4.x -= 2.1;
+            this.platform5.x -= 1.1;
+            this.platform6.x -= 1.9;
+            this.platform7.x -= 3.1;
+            this.platform8.x -= 1.45;
+        })
+
+        // final increase in platform speed at 120 seconds
+        this.speedClock = this.time.delayedCall(120000, () => {
+            this.platform1.x -= 2.75;
+            this.platform2.x -= 2.9;
+            this.platform3.x -= 1.25;
+            this.platform4.x -= 2.4;
+            this.platform5.x -= 1.4;
+            this.platform6.x -= 2.2;
+            this.platform7.x -= 3.4;
+            this.platform8.x -= 1.75;
+        })
+
         if (keyJUMP.isDown && this.p1Angel.y > 55) {
             this.p1Jump.play();
             this.p1Angel.setVelocityY(-300);
             this.points++;
-            this.score += this.points;
-            this.scoreText.text = this.score;
+            score += this.points;
+            this.scoreText.text = score;
         }
 
         if (keyLEFT.isDown && this.p1Angel.x > 20) {
@@ -139,6 +176,9 @@ class Play extends Phaser.Scene {
         if (this.p1Angel.y > 480) {
             this.death.play();
             this.song.stop();
+            if (score > highScore) {
+                highScore = score;
+            }
             this.scene.start('overScene');
         }
 
@@ -214,6 +254,9 @@ class Play extends Phaser.Scene {
             angel.x + angel.width > platform.x && 
             angel.y < platform.y + platform.height &&
             angel.height + angel.y > platform. y) {
+            if (score > highScore) {
+                highScore = score;
+            }
             return true;
         } else {
             return false;
