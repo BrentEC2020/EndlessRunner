@@ -83,11 +83,11 @@ class Play extends Phaser.Scene {
             this.platform.destroy();
         })
  
-        let scoreConfig = {
+        let playConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: "#843605",
+            backgroundColor: '#FF886F',
+            color: "#FFE56F",
             align: 'left',
             padding: {
                 top: 5,
@@ -96,7 +96,7 @@ class Play extends Phaser.Scene {
             fixedWidth: 100
         }
 
-        this.scoreText = this.add.text(game.config.width / 2 - 300, game.config.height - 465, score, scoreConfig).setScrollFactor(0);
+        this.scoreText = this.add.text(game.config.width / 2 - 300, game.config.height - 465, score, playConfig).setOrigin(0, 0);
 
     }
 
