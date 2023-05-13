@@ -5,9 +5,9 @@ class Play extends Phaser.Scene {
 
     preload() {
         // load images/tile sprites
-        this.load.image('angel', './assets/angel.png');
+        this.load.spritesheet('angel', './assets/angel.png', {frameWidth: 41, frameHeight: 50});
         this.load.image('skytile', './assets/skytile.png');
-        this.load.image('platform', './assets/platform.png');
+        this.load.image('platform', './assets/platform.png')
       }
     
     create() {
@@ -18,8 +18,15 @@ class Play extends Phaser.Scene {
         this.platform.displayWidth = 100;
 
         // add angel (p1)
-        this.p1Angel = this.physics.add.sprite(game.config.width / 6, game.config.height - borderUISize - borderPadding - 120, 'angel');
+        this.p1Angel = this.physics.add.sprite(game.config.width / 6, game.config.height - borderUISize - borderPadding - 120, 'angel', 0).setOrigin(0, 0);
         this.p1Angel.setGravityY(gameOptions.playerGravity);
+
+        this.anims.create({
+            key: 'angelJump',
+            frameRate: 4,
+            frames: this.anims.generateFrameNumbers('angel', { start: 0, end: 3 }),
+            repeat: -1,
+        });
 
         this.randX0 = Phaser.Math.Between(620, game.config.width);
         this.randX1 = Phaser.Math.Between(420, game.config.width);
@@ -92,6 +99,7 @@ class Play extends Phaser.Scene {
     }
 
     update() {
+        this.p1Angel.anims.play('angelJump', true);
         this.points = 0;
         this.currentTimer = Math.ceil(this.clock.getRemaining());
         this.jumps = 0;
