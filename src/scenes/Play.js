@@ -100,12 +100,12 @@ class Play extends Phaser.Scene {
 
         this.platform1.x -= 1;
         this.platform2.x -= 2;
-        this.platform3.x -= 1.7;
-        this.platform4.x -= 3;
-        this.platform5.x -= 2.7;
-        this.platform6.x -= 1.5;
-        this.platform7.x -= 2.5;
-        this.platform8.x -= 0.5;
+        this.platform3.x -= 0.85;
+        this.platform4.x -= 1.5;
+        this.platform5.x -= 1.35;
+        this.platform6.x -= 0.75;
+        this.platform7.x -= 1.25;
+        this.platform8.x -= 0.25;
 
         if (keyJUMP.isDown && this.p1Angel.y > 55) {
             this.p1Angel.setVelocityY(-300);
