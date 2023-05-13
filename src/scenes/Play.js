@@ -4,10 +4,12 @@ class Play extends Phaser.Scene {
     }
 
     preload() {
-        // load images/tile sprites
-        this.load.spritesheet('angel', './assets/angel.png', {frameWidth: 41, frameHeight: 50});
-        this.load.image('skytile', './assets/skytile.png');
-        this.load.image('platform', './assets/platform.png')
+        this.anims.create({
+            key: 'angelJump',
+            frameRate: 4,
+            frames: this.anims.generateFrameNumbers('angel', { start: 0, end: 3 }),
+            repeat: -1,
+        });
       }
     
     create() {
@@ -20,13 +22,6 @@ class Play extends Phaser.Scene {
         // add angel (p1)
         this.p1Angel = this.physics.add.sprite(game.config.width / 6, game.config.height - borderUISize - borderPadding - 120, 'angel', 0).setOrigin(0, 0);
         this.p1Angel.setGravityY(gameOptions.playerGravity);
-
-        this.anims.create({
-            key: 'angelJump',
-            frameRate: 4,
-            frames: this.anims.generateFrameNumbers('angel', { start: 0, end: 3 }),
-            repeat: -1,
-        });
 
         this.randX0 = Phaser.Math.Between(620, game.config.width);
         this.randX1 = Phaser.Math.Between(420, game.config.width);
