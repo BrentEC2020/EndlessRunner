@@ -2,9 +2,8 @@
 let gameOptions = {
     platformStartSpeed: 350,
     spawnRange: [100, 350],
-    platformSizeRange: [50, 250],
+    platformSizeRange: [50, 150],
     playerGravity: 900,
-    jumpForce: 400,
     playerStartPosition: 200,
     jumps: 2
 }
@@ -23,6 +22,8 @@ let config = {
   }  
 
 let game = new Phaser.Game(config);
+
+let centerX = game.config.width / 2;
 
 // set UI sizes
 let borderUISize = game.config.height / 15;
