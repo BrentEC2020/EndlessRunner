@@ -31,16 +31,16 @@ class Play extends Phaser.Scene {
         this.song.loop = true;
         this.song.play();
 
-        this.randX0 = Phaser.Math.Between(620, game.config.width);
-        this.randX1 = Phaser.Math.Between(420, game.config.width);
-        this.randX2 = Phaser.Math.Between(390, game.config.width);
-        this.randX3 = Phaser.Math.Between(400, game.config.width);
-        this.randX4 = Phaser.Math.Between(470, game.config.width);
-        this.randX5 = Phaser.Math.Between(490, game.config.width);
+        this.randX0 = Phaser.Math.Between(940, game.config.width + 200);
+        this.randX1 = Phaser.Math.Between(860, game.config.width + 200);
+        this.randX2 = Phaser.Math.Between(840, game.config.width + 200);
+        this.randX3 = Phaser.Math.Between(880, game.config.width + 200);
+        this.randX4 = Phaser.Math.Between(800, game.config.width + 200);
+        this.randX5 = Phaser.Math.Between(790, game.config.width + 200);
 
-        this.randX6 = Phaser.Math.Between(740, 800);
-        this.randX7 = Phaser.Math.Between(550, 750);
-        this.randX8 = Phaser.Math.Between(500, game.config.width);
+        this.randX6 = Phaser.Math.Between(940, 800 + 200);
+        this.randX7 = Phaser.Math.Between(920, 750 + 200);
+        this.randX8 = Phaser.Math.Between(820, game.config.width + 200);
 
 
         this.randY0 = Phaser.Math.Between(120, game.config.width - 20);
@@ -108,14 +108,26 @@ class Play extends Phaser.Scene {
         this.skytile.tilePositionX -= 4;
         this.moveSpeed = 3;
 
-        this.platform1.x -= 1.85;
-        this.platform2.x -= 2;
-        this.platform3.x -= 1.35;
-        this.platform4.x -= 1.5;
-        this.platform5.x -= 0.5;
-        this.platform6.x -= 2.3;
-        this.platform7.x -= 2.5;
-        this.platform8.x -= 0.85;
+        this.platform1.x -= 0.85;
+        this.platform2.x -= 0.5;
+        this.platform3.x -= 0.75;
+        this.platform4.x -= 0.6;
+        this.platform5.x -= 0.3;
+        this.platform6.x -= 1.3;
+        this.platform7.x -= 1.5
+        this.platform8.x -= 0.4; 
+
+        // Get to normal speed after 5 seconds to give player time to react and not die instantly
+        this.startClock = this.time.delayedCall(5000, () => {
+            this.platform1.x -= 1.85;
+            this.platform2.x -= 2;
+            this.platform3.x -= 1.35;
+            this.platform4.x -= 1.5;
+            this.platform5.x -= 0.5;
+            this.platform6.x -= 2.3;
+            this.platform7.x -= 2.5;
+            this.platform8.x -= 0.85;
+        })
 
         // increase platform speed at 30 seconds
         this.speedClock = this.time.delayedCall(35000, () => {
@@ -130,7 +142,7 @@ class Play extends Phaser.Scene {
         })
 
         // increase platform speed at 70 seconds
-        this.speedClock = this.time.delayedCall(70000, () => {
+        this.speedClock2 = this.time.delayedCall(70000, () => {
             this.platform1.x -= 2.45;
             this.platform2.x -= 2.6;
             this.platform3.x -= 1.95;
@@ -142,7 +154,7 @@ class Play extends Phaser.Scene {
         })
 
         // final increase in platform speed at 120 seconds
-        this.speedClock = this.time.delayedCall(120000, () => {
+        this.speedClock3 = this.time.delayedCall(120000, () => {
             this.platform1.x -= 2.75;
             this.platform2.x -= 2.9;
             this.platform3.x -= 1.25;
