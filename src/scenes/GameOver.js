@@ -31,16 +31,19 @@ class GameOver extends Phaser.Scene {
     update() {
         if (keySPACE.isDown) {
             this.click.play();
+            this.click.setVolume(0.3);
             this.scene.start('playScene');
         }
 
         if (keyC.isDown) {
             this.click.play();
+            this.click.setVolume(0.3);
             this.scene.start('creditScene');
         }
 
         if (keyM.isDown) {
             this.click.play();
+            this.click.setVolume(0.3);
             this.scene.start('menuScene');
         }
     }

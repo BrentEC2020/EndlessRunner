@@ -14,6 +14,7 @@ class Rules extends Phaser.Scene {
     update() {
         if(keyJUMP.isDown) {
             this.click.play();
+            this.click.setVolume(0.3);
             this.scene.start('playScene');
         }
     }

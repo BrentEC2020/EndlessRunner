@@ -159,7 +159,7 @@ class Play extends Phaser.Scene {
 
         if (keyJUMP.isDown && this.p1Angel.y > 55) {
             this.p1Jump.play();
-            this.p1Jump.setVolume(0.5);
+            this.p1Jump.setVolume(0.3);
             this.p1Angel.setVelocityY(-300);
             this.points++;
             score += this.points;
@@ -189,54 +189,63 @@ class Play extends Phaser.Scene {
 
         if (this.checkCollision(this.p1Angel, this.platform0)) {
             this.death.play();
+            this.death.setVolume(0.3);
             this.song.stop();
             this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform1)) {
             this.death.play();
+            this.death.setVolume(0.3);
             this.song.stop();
             this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform2)) {
             this.death.play();
+            this.death.setVolume(0.3);
             this.song.stop();
             this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform3)) {
             this.death.play();
+            this.death.setVolume(0.3);
             this.song.stop();
             this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform4)) {
             this.death.play();
+            this.death.setVolume(0.3);
             this.song.stop();
             this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform5)) {
             this.death.play();
+            this.death.setVolume(0.3);
             this.song.stop();
             this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform6)) {
             this.death.play();
+            this.death.setVolume(0.3);
             this.song.stop();
             this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform7)) {
             this.death.play();
+            this.death.setVolume(0.3);
             this.song.stop();
             this.scene.start('overScene');
         }
 
         if (this.checkCollision(this.p1Angel, this.platform8)) {
             this.death.play();
+            this.death.setVolume(0.3);
             this.song.stop();
             this.scene.start('overScene');
         }
