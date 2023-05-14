@@ -108,17 +108,8 @@ class Play extends Phaser.Scene {
         this.skytile.tilePositionX -= 4;
         this.moveSpeed = 3;
 
-        this.platform1.x -= 0.85;
-        this.platform2.x -= 0.5;
-        this.platform3.x -= 0.75;
-        this.platform4.x -= 0.6;
-        this.platform5.x -= 0.3;
-        this.platform6.x -= 1.3;
-        this.platform7.x -= 1.5
-        this.platform8.x -= 0.4; 
-
         // Get to normal speed after 5 seconds to give player time to react and not die instantly
-        this.startClock = this.time.delayedCall(5000, () => {
+        this.startClock = this.time.delayedCall(1500, () => {
             this.platform1.x -= 1.85;
             this.platform2.x -= 2;
             this.platform3.x -= 1.35;
@@ -126,11 +117,11 @@ class Play extends Phaser.Scene {
             this.platform5.x -= 0.5;
             this.platform6.x -= 2.3;
             this.platform7.x -= 2.5;
-            this.platform8.x -= 0.85;
+            this.platform8.x -= 1.15;
         })
 
         // increase platform speed at 30 seconds
-        this.speedClock = this.time.delayedCall(35000, () => {
+        this.time.delayedCall(35000, () => {
             this.platform1.x -= 2.15;
             this.platform2.x -= 2.3;
             this.platform3.x -= 1.65;
@@ -142,7 +133,7 @@ class Play extends Phaser.Scene {
         })
 
         // increase platform speed at 70 seconds
-        this.speedClock2 = this.time.delayedCall(70000, () => {
+        this.time.delayedCall(70000, () => {
             this.platform1.x -= 2.45;
             this.platform2.x -= 2.6;
             this.platform3.x -= 1.95;
@@ -154,7 +145,7 @@ class Play extends Phaser.Scene {
         })
 
         // final increase in platform speed at 120 seconds
-        this.speedClock3 = this.time.delayedCall(120000, () => {
+        this.time.delayedCall(120000, () => {
             this.platform1.x -= 2.75;
             this.platform2.x -= 2.9;
             this.platform3.x -= 1.25;
