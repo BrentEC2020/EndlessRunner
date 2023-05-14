@@ -30,6 +30,7 @@ class Play extends Phaser.Scene {
 
         this.song.loop = true;
         this.song.play();
+        this.song.setVolume(0.5);
 
         this.randX0 = Phaser.Math.Between(940, game.config.width + 200);
         this.randX1 = Phaser.Math.Between(860, game.config.width + 200);
@@ -158,6 +159,7 @@ class Play extends Phaser.Scene {
 
         if (keyJUMP.isDown && this.p1Angel.y > 55) {
             this.p1Jump.play();
+            this.p1Jump.setVolume(0.5);
             this.p1Angel.setVelocityY(-300);
             this.points++;
             score += this.points;
