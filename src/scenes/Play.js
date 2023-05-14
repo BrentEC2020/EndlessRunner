@@ -120,8 +120,8 @@ class Play extends Phaser.Scene {
             this.platform8.x -= 1.15;
         })
 
-        // increase platform speed at 30 seconds
-        this.time.delayedCall(35000, () => {
+        // increase platform speed at 25 seconds
+        this.time.delayedCall(25000, () => {
             this.platform1.x -= 2.15;
             this.platform2.x -= 2.3;
             this.platform3.x -= 1.65;
